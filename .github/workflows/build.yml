@@ -81,8 +81,8 @@ jobs:
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
           
           docker build -t codex-config .
-          docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:$PROJECT_VERSION_${{ github.sha }}  
+          docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:${{env.PROJECT_VERSION}}_${{ github.sha }}  
           docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:latest  
-          docker push ${{ secrets.DOCKER_USER }}/codex-config::$PROJECT_VERSION_${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USER }}/codex-config::${{env.PROJECT_VERSION}}_${{ github.sha }}
           docker push ${{ secrets.DOCKER_USER }}/codex-config:latest  
       
