@@ -83,6 +83,6 @@ jobs:
           docker build -t codex-config .
           docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:${{env.PROJECT_VERSION}}_${{ github.sha }}  
           docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:latest  
-          docker push ${{ secrets.DOCKER_USER }}/codex-config::${{env.PROJECT_VERSION}}_${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USER }}/codex-config:${{env.PROJECT_VERSION}}_${{ github.sha }}
           docker push ${{ secrets.DOCKER_USER }}/codex-config:latest  
       
