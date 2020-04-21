@@ -1,3 +1,6 @@
+![Build](https://github.com/cloud-challenge/codex-config/workflows/Build/badge.svg?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cloud-challenge_codex-config&metric=alert_status)](https://sonarcloud.io/dashboard?id=cloud-challenge_codex-config)
+
 # Spring config server for manage cloud-challenge microservices configuration
 
 This microservices use sprint Spring Cloud Config for expose spring application coniguration files.
