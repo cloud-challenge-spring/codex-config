@@ -75,13 +75,14 @@ jobs:
           
       - name: Create and push Docker images
         run: |
-          projectVersion=$(./gradlew project-version | grep "version:" | tr -d 'version:')
+          export PROJECT_VERSION = $(./gradlew project-version | grep "version:" | tr -d 'version:')
+          echo "PROJECT_VERSION = $PROJECT_VERSION"
           
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
           
           docker build -t codex-config .
-          docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:$projectVersion_${{ github.sha }}  
+          docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:$PROJECT_VERSION_${{ github.sha }}  
           docker tag codex-config ${{ secrets.DOCKER_USER }}/codex-config:latest  
-          docker push ${{ secrets.DOCKER_USER }}/codex-config::$projectVersion_${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USER }}/codex-config::$PROJECT_VERSION_${{ github.sha }}
           docker push ${{ secrets.DOCKER_USER }}/codex-config:latest  
       
