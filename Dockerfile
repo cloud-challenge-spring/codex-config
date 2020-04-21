@@ -4,7 +4,7 @@ RUN addgroup --system spring && adduser --system spring
 USER spring:spring
 VOLUME /tmp
 WORKDIR /home/spring
-ADD build/libs/config-0.1.0.jar /home/spring/app.jar
+ADD build/libs/codex-config-0.1.0.jar /home/spring/app.jar
 ADD src/main/resources/* /home/spring/
 ENV JAVA_OPTS=""
 ENV SPRING_PROFILES_ACTIVE=dev
