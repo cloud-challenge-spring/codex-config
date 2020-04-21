@@ -75,8 +75,8 @@ jobs:
           
       - name: get app version number
         run: |
-          export PROJECT_VERSION=$(./gradlew project-version | grep "version:" | tr -d 'version:')
-          echo "::set-env name=PROJECT_VERSION::$PROJECT_VERSION"
+          $(./gradlew project-version | grep "version:" | tr -d 'version:') > PROJECT_VERSION
+          echo "::set-env name=PROJECT_VERSION::$(cat PROJECT_VERSION)"
           
       - name: Create and push Docker images
         run: |          
