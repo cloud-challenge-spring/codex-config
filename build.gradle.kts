@@ -45,10 +45,16 @@ tasks.withType<KotlinCompile> {
 
 sonarqube {
 	properties {
-		property("sonar.projectKey", "codex-config")
+		property("sonar.projectKey", "cloud-challenge_codex-config")
 		property("sonar.organization", "cloud-challenge")
 		property("sonar.host.url", "https://sonarcloud.io")
 		property("sonar.login", System.getProperty("sonar.login", ""))
 		property("sonar.scm.provider", "git")
+	}
+}
+
+tasks.register("project-version") {
+	doFirst {
+		println("version:${project.version}")
 	}
 }
