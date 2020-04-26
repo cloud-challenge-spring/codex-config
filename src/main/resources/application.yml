@@ -16,3 +16,18 @@ spring:
       server:
         git:
           uri: file://home/spring/codex-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+
+---
+spring:
+  profiles: kubernetes
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8080/eureka/
