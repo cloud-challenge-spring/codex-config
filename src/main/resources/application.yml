@@ -3,36 +3,7 @@ server.port: 8888
 spring:
   application:
     name: codex-config
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/cloud-challenge/codex-config-files
 
----
-
-spring:
-  profiles: dev
-  cloud:
-    config:
-      server:
-        git:
-          uri: file://home/spring/codex-config
-
-  boot:
-    admin:
-      client:
-        url: http://admin-server:8079
-
-  eureka:
-    client:
-      serviceUrl:
-        defaultZone: http://localhost:8080/eureka/
-
-
----
-spring:
-  profiles: kubernetes
   cloud:
     config:
       server:
