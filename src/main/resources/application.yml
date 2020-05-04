@@ -10,8 +10,7 @@ spring:
         git:
           uri: https://github.com/cloud-challenge/codex-config-files
 
-
-  boot:
+   boot:
     admin:
       client:
         url: http://admin-server:8079
